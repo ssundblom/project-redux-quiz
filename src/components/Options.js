@@ -12,20 +12,18 @@ export const Options = () => {
     return <h1>Oh no! I could not find the current answers!</h1>
 
   }
+  console.log(question)
 
   return (
     <form>
-      <label>{question.options[0]}</label>
-      <input type="radio" name="option" onChange={() => dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: 0 }))}/>
-
-      <label>{question.options[1]}</label>
-      <input type="radio" name="option" onChange={() => dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: 1 }))}/>
-
-      <label>{question.options[2]}</label>
-      <input type="radio" name="option" onChange={() => dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: 2 }))}/>
-
-      <label>{question.options[3]}</label>
-      <input type="radio" name="option" onChange={() => dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: 3 }))}/>
+      {question.options.map((option, index) => {
+        return (
+          <div>
+            <label>{option}</label>
+            <input type="radio" name="option" onChange={() => dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: index }))}/>
+          </div>
+        )
+      })}
     </form>
   )
 }
