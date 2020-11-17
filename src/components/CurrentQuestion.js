@@ -16,9 +16,6 @@ export const CurrentQuestion = () => {
   return (
     <div>
       <h1>Question: {question.questionText}</h1>
-      <button className="next-button" onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
-        Next Question
-      </button>
     </div>
   )
 }

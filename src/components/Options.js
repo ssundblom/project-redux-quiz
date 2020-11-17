@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { quiz } from 'reducers/quiz'
 
 export const Options = () => {
-  const [disabled, setDisabled] = useState(false)
+  const [answered, setAnswered] = useState(false) 
   const dispatch = useDispatch()
 
   const question = useSelector(
@@ -19,9 +19,13 @@ export const Options = () => {
       {question.options.map((option, index) => {
         return (
           <div>
-            <label>{option}</label>
-            <input type="radio" name="option" onChange={( ) => dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: index }))}/>
-            {/* ? index !== question.correctAnswerIndex : setDisable  */}
+            <label>{option}
+              <input type="radio" checked={answered} name="option" onChange={( ) => {
+                dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: index }))
+                dispatch(quiz.actions.goToNextQuestion())
+                setAnswered(false)
+                }}/>
+              </label>
           </div>
         )
       })}
