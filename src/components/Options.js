@@ -25,7 +25,7 @@ export const Options = () => {
     <form>
       {question.options.map((option, index) => {
         return (
-          <div key={index}>
+          <div className="answer-container" key={index}>
             <input disabled={answer !== undefined} checked={answer !== undefined && answer.answerIndex === index} type="radio" name="option" id={index} onChange={() => 
               dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: index }))}/>
             <label htmlFor={index} className="options-label">{option}</label>

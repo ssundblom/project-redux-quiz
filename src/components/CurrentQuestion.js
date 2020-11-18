@@ -2,6 +2,8 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { quiz } from 'reducers/quiz'
 
+import './CurrentQuestion.css'
+
 
 export const CurrentQuestion = () => {
   const dispatch = useDispatch()
@@ -24,7 +26,7 @@ export const CurrentQuestion = () => {
   }
 
   return (
-    <div>
+    <div className="question-container">
       <h1>{question.questionText}</h1>
       <button className="next-button" disabled={answer === undefined} onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
         Next Question
