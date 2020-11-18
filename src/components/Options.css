@@ -10,9 +10,6 @@ form {
   align-items: center;
 }
 
-/* styling for radio buttons */
-
-/* STYLING OF THE LABEL */
 input[type="radio"] + .options-label {
   width: 350px;
   display: block;
@@ -29,7 +26,6 @@ input[type="radio"] + .options-label {
   transition: 0.5s;
 }
 
-/* IF DISABLED */
 input[type="radio"]:disabled + .options-label {
   opacity: 0.5;
 }
@@ -41,17 +37,6 @@ input[type="radio"] + .options-label:hover {
 input[type="radio"]:checked + .options-label {
   background-color: #9ddfd3;
   color: #ffffff;
-}
-
-
-/* IF ANSWER IS FALSE*/
-input[type="radio"]:checked + .false {
-  color: #ff425e;
-}
-
-/* IF ANSWER IS TRUE*/
-input[type="radio"]:checked + .true {
-  color: #49b675;
 }
 
 input[type="radio"]:focus + .options-label {
