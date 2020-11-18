@@ -2,8 +2,9 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { quiz } from 'reducers/quiz'
 
-import './CurrentQuestion.css'
+import { Options } from './Options'
 
+import './CurrentQuestion.css'
 
 export const CurrentQuestion = () => {
   const dispatch = useDispatch()
@@ -13,7 +14,9 @@ export const CurrentQuestion = () => {
     const questionNumber = useSelector(
       (state) => state.quiz.currentQuestionIndex + 1
     )
-    const questionTotal = useSelector((state) => state.quiz.questions.length
+
+    const questionTotal = useSelector(
+      (state) => state.quiz.questions.length
     )
   
     const answer = useSelector(
@@ -27,11 +30,16 @@ export const CurrentQuestion = () => {
 
   return (
     <div className="question-container">
-      <h1>{question.questionText}</h1>
-      <button className="next-button" disabled={answer === undefined} onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
-        Next Question
+      <h1>
+        {question.questionText}
+      </h1>
+      <p className="text-number">
+        Question {questionNumber} of {questionTotal}
+      </p>
+      <Options />
+      <button className="question-btn" disabled={answer === undefined} onClick={() => dispatch(quiz.actions.goToNextQuestion())}>
+        {questionNumber === questionTotal ? "Show Summary" : "Next Question"}
       </button>
-      <p>Question {questionNumber} of {questionTotal}</p>
     </div>
   )
 }

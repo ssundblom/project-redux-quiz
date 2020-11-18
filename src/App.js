@@ -3,9 +3,7 @@ import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { quiz } from 'reducers/quiz'
 
-import { CurrentQuestion } from 'components/CurrentQuestion'
-import { Options } from 'components/Options'
-import { Summary } from 'components/Summary'
+import { Quiz } from 'components/Quiz'
 
 const reducer = combineReducers({
   quiz: quiz.reducer
@@ -16,9 +14,7 @@ const store = configureStore({ reducer })
 export const App = () => {
   return (
     <Provider store={store}>
-      <CurrentQuestion />
-      <Options />
-      <Summary />
+      <Quiz />
     </Provider>
   )
 }

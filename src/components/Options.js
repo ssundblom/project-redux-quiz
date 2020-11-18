@@ -14,8 +14,6 @@ export const Options = () => {
   const answer = useSelector(
     (state) => state.quiz.answers.find(answer => answer.questionId === question.id)
   )
-
-  console.log(answer)
   
   if (!question) {
     return <h1>Oh no! I could not find the current answers!</h1>

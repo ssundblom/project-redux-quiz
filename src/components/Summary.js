@@ -1,22 +1,24 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { quiz } from 'reducers/quiz'
 
 import './Summary.css'
 
-
 export const Summary = () => {
+  const dispatch = useDispatch()
+  const answers = useSelector(
+    (state) => state.quiz.answers
+  )
 
-  //const results = useSelector(
- //   (state) => state.quiz.
-  //)
+  const numCorrectAnswers = answers.filter(answer => answer.isCorrect).length
+  const numAnswers = answers.length
 
   return(
 
     <div className="summary-container">
-      <p>Summary text</p>
-      <button>Restart</button>
+      <p>Congratulations! You got {numCorrectAnswers} right answers out of {numAnswers} 🌍</p>
+      <button className="summary-btn" onClick={() => dispatch(quiz.actions.restart())}>Restart</button>
     </div>
   )
 }
