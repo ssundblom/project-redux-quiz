@@ -5,6 +5,7 @@ import { quiz } from 'reducers/quiz'
 
 import { CurrentQuestion } from 'components/CurrentQuestion'
 import { Options } from 'components/Options'
+import { Summary } from 'components/Summary'
 
 const reducer = combineReducers({
   quiz: quiz.reducer
@@ -17,6 +18,7 @@ export const App = () => {
     <Provider store={store}>
       <CurrentQuestion />
       <Options />
+      <Summary />
     </Provider>
   )
 }
