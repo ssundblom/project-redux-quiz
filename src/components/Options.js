@@ -22,9 +22,9 @@ export const Options = () => {
             <label>{option}
               <input type="radio" checked={answered} name="option" onChange={( ) => {
                 dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: index }))
-                dispatch(quiz.actions.goToNextQuestion())
-                setAnswered(false)
-                }}/>
+                // dispatch(quiz.actions.goToNextQuestion())
+                // setAnswered(false)
+                 }}/>
               </label>
           </div>
         )
