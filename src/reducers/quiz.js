@@ -2,11 +2,12 @@ import { createSlice } from '@reduxjs/toolkit'
 
 // Change these to your own questions!
 const questions = [
-  { id: 1, questionText: 'Who set the Olympic record for the 100m dash in 2012?', options: ['Usain Bolt', 'Justin Gatlin', 'Tyson Gay', 'Asafa Powell'], correctAnswerIndex: 0 },
-  { id: 2, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 },
-  { id: 3, questionText: 'Falukorv', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 },
-  { id: 4, questionText: 'prinskorv', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 },
-  { id: 5, questionText: 'When was Michael Phelps last named male World Swimmer of the Year?', options: ['2012', '2014', '2016', '2018'], correctAnswerIndex: 2 }
+  { id: 1, questionText: 'Which country has a unicorn as its national animal?', options: ['Japan', 'Scotland', 'Curaçao', 'Norway'], correctAnswerIndex: 1 },
+  { id: 2, questionText: 'What country was known as Ceylon until 1972?', options: ['India', 'Sri Lanka', 'Bangladesh', 'Bhutan'], correctAnswerIndex: 1 },
+  { id: 3, questionText: 'What country is also the largest island in the world?', options: ['Madagascar', 'Australia', 'New Guinea', 'Greenland'], correctAnswerIndex: 3 },
+  { id: 4, questionText: 'Which country invented gin?', options: ['England', 'Ireland', 'France', 'Holland'], correctAnswerIndex: 3 },
+  { id: 5, questionText: 'Officially, what is the hottest country in the world?', options: ['Ghana', 'Saudiarabien', 'Pakistan', 'Burkina Faso'], correctAnswerIndex: 3 },
+  { id: 6, questionText: 'Which country has the most islands in the world?', options: ['Sweden', 'Maldives', 'Philippines', 'Finland'], correctAnswerIndex: 0 }
 ]
 
 const initialState = {

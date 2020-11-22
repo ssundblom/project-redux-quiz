@@ -1,13 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+
 import { quiz } from 'reducers/quiz'
 
-export const Options = () => {
-  const [answered, setAnswered] = useState(false) 
+import './Options.css'
+
+export const Options = () => { 
   const dispatch = useDispatch()
 
   const question = useSelector(
     (state) => state.quiz.questions[state.quiz.currentQuestionIndex]
+  )
+
+  const answer = useSelector(
+    (state) => state.quiz.answers.find(answer => answer.questionId === question.id)
   )
   
   if (!question) {
@@ -18,14 +24,22 @@ export const Options = () => {
     <form>
       {question.options.map((option, index) => {
         return (
-          <div>
-            <label>{option}
-              <input type="radio" checked={answered} name="option" onChange={( ) => {
-                dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: index }))
-                // dispatch(quiz.actions.goToNextQuestion())
-                // setAnswered(false)
-                 }}/>
-              </label>
+          <div className="answer-container" key={index}>
+            <input 
+              disabled={answer !== undefined} 
+              checked={answer !== undefined && answer.answerIndex === index} 
+              type="radio" 
+              name="option" 
+              id={index} 
+              onChange={() => 
+              dispatch(quiz.actions.submitAnswer({ questionId: question.id, answerIndex: index }))}
+            />
+            <label 
+              htmlFor={index} 
+              className="options-label"
+            >
+              {option}
+            </label>
           </div>
         )
       })}
